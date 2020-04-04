@@ -81,6 +81,24 @@ var mutation = new GraphQLObjectType({
                     },
                     fontSize: {
                         type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    backgroundColor: {
+                        type = new GraphQLNonNull(GraphQLString)
+                    },
+                    borderColor: {
+                        type = new GraphQLNonNull(GraphQLString)
+                    },
+                    borderRadius: {
+                        type = new GraphQLNonNull(GraphQLInt)
+                    },
+                    borderWidth: {
+                        type = new GraphQLNonNull(GraphQLInt)
+                    },
+                    padding: {
+                        type = new GraphQLNonNull(GraphQLInt)
+                    },
+                    margin: {
+                        type = new GraphQLNonNull(GraphQLInt)
                     }
                 },
                 resolve: function (root, params) {
@@ -107,6 +125,24 @@ var mutation = new GraphQLObjectType({
                     },
                     fontSize: {
                         type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    backgroundColor: {
+                        type = new GraphQLNonNull(GraphQLString)
+                    },
+                    borderColor: {
+                        type = new GraphQLNonNull(GraphQLString)
+                    },
+                    borderRadius: {
+                        type = new GraphQLNonNull(GraphQLInt)
+                    },
+                    borderWidth: {
+                        type = new GraphQLNonNull(GraphQLInt)
+                    },
+                    padding: {
+                        type = new GraphQLNonNull(GraphQLInt)
+                    },
+                    margin: {
+                        type = new GraphQLNonNull(GraphQLInt)
                     }
                 },
                 resolve(root, params) {
