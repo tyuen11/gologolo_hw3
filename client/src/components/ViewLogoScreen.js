@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
+import Navbar from './editScreen/Navbar.js'
+
 
 const GET_LOGO = gql`
     query logo($logoId: String) {
@@ -37,7 +39,7 @@ class ViewLogoScreen extends Component {
                         <div className="container">
                             <div className="panel panel-default">
                                 <div className="panel-heading">
-                                    <h4><Link to="/">Home</Link></h4>
+                                    <Navbar></Navbar>
                                     <h3 className="panel-title">
                                         View Logo
                                     </h3>
