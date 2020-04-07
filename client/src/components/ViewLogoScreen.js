@@ -52,10 +52,10 @@ class ViewLogoScreen extends Component {
                                     <Navbar></Navbar>
                                 </div>
                                 <div className="row">
-                                    <div className="col-6"> 
+                                    <div className="col-10"> 
                                         <ViewLogo logo={data.logo}/>
                                     </div>
-                                    <div className="col-6">
+                                    <div className="col-2">
                                         <Mutation mutation={DELETE_LOGO} key={data.logo._id} onCompleted={() => this.props.history.push('/')}>
                                             {(removeLogo, { loading, error }) => (
                                                 <div>

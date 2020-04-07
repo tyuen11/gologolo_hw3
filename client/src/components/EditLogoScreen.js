@@ -59,7 +59,7 @@ class EditLogoScreen extends Component {
                     if (error) return `Error! ${error.message}`;
 
                     return (
-                        <Mutation mutation={UPDATE_LOGO} key={data.logo._id} onCompleted={() => this.props.history.push(`/`)}>
+                        <Mutation mutation={UPDATE_LOGO} key={data.logo._id} onCompleted={() => this.props.history.push(`/view/${data.logo._id}`)}>
                             {(updateLogo, { loading, error }) => (
                                 <div className="container">
                                     <div className="panel panel-default">
@@ -70,9 +70,7 @@ class EditLogoScreen extends Component {
                                         </h3>
                                         </div>
                                         <div className="panel-body">                                            
-                                            <form onSubmit={e => {
-                                                console.log(data.logo._id);
-                                                
+                                            <form onSubmit={e => {                                                
                                                 e.preventDefault();
                                                 updateLogo({ variables: { id: data.logo._id, text: text.value, color: color.value, fontSize: parseInt(fontSize.value),
                                                         backgroundColor: backgroundColor.value, borderColor: borderColor.value, borderRadius: parseInt(borderRadius.value),
@@ -95,7 +93,7 @@ class EditLogoScreen extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="fontSize">Font Size:</label>
-                                                    <input type="text" className="form-control" name="fontSize" ref={node => {
+                                                    <input type="number" min="4" max="144" className="form-control" name="fontSize" ref={node => {
                                                         fontSize = node;
                                                     }} placeholder="Font Size" defaultValue={data.logo.fontSize} />
                                                 </div>
@@ -113,25 +111,25 @@ class EditLogoScreen extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="borderRadius">Border Radius:</label>
-                                                    <input type="text" className="form-control" name="fontSize" ref={node => {
+                                                    <input type="number" min="4" max="144" className="form-control" name="fontSize" ref={node => {
                                                         borderRadius = node;
                                                     }} placeholder="Border Radius" defaultValue={data.logo.borderRadius} />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="borderWidth">Border Width:</label>
-                                                    <input type="text" className="form-control" name="borderWidth" ref={node => {
+                                                    <input type="number" min="4" max="144" className="form-control" name="borderWidth" ref={node => {
                                                         borderWidth = node;
                                                     }} placeholder="Border Width" defaultValue={data.logo.borderWidth} />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="padding">Padding:</label>
-                                                    <input type="text" className="form-control" name="padding" ref={node => {
+                                                    <input type="number" min="4" max="144" className="form-control" name="padding" ref={node => {
                                                         padding = node;
                                                     }} placeholder="Padding" defaultValue={data.logo.padding} />
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="margin">Margin</label>
-                                                    <input type="text" className="form-control" name="margin" ref={node => {
+                                                    <input type="number" min="4" max="144" className="form-control" name="margin" ref={node => {
                                                         margin = node;
                                                     }} placeholder="Margin" defaultValue={data.logo.margin} />
                                                 </div>
@@ -140,7 +138,7 @@ class EditLogoScreen extends Component {
                                                 <button type="submit" className="btn btn-success">Submit</button>
                                             </form>
                                             {loading && <p>Loading...</p>}
-                                            {error && <p>Error :( Please try again</p>}
+                                            {error && <p>Errors :( Please try again</p>}
                                         </div>
                                     </div>
                                 </div>
