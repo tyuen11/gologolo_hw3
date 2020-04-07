@@ -9,9 +9,6 @@ class Navbar extends Component {
                 <h4 className="nav-item">
                     <Link to="/">Home</Link>
                 </h4>
-                <ul className="nav-item">
-                    <li style={ {cursor: "pointer", fontSize: '30px'} } >&#128465;</li>
-                </ul>
             </nav>
         )
     }
