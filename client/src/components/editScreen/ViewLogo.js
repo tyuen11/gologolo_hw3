@@ -5,7 +5,7 @@ class ViewLogo extends Component {
         const styles = {
             container: {
                
-                color: this.props.logo.textColor,
+                color: this.props.logo.color,
                 fontSize: this.props.logo.fontSize + "pt",
                 backgroundColor: this.props.logo.backgroundColor,
                 borderRadius: this.props.logo.borderRadius + "pt",
