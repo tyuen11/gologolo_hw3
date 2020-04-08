@@ -134,7 +134,6 @@ class EditLogoScreen extends Component {
                                                     }} placeholder="Margin" defaultValue={data.logo.margin} />
                                                 </div>
 
-
                                                 <button type="submit" className="btn btn-success">Submit</button>
                                             </form>
                                             {loading && <p>Loading...</p>}
