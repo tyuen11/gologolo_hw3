@@ -17,7 +17,7 @@ class ViewLogo extends Component {
             }
         }
         return (
-            <div>
+            <div className="col-8">
                 <div style={ styles.container }>
                     {this.props.logo.text}
                 </div>
