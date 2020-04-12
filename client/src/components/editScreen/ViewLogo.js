@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 class ViewLogo extends Component {
+    componentDidUpdate = () => {
+                
+    }
     render() {
         const styles = {
             container: {

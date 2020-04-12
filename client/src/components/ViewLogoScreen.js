@@ -51,8 +51,8 @@ class ViewLogoScreen extends Component {
                                 <div className="panel-heading">
                                     <Navbar></Navbar>
                                 </div>
-                                <div className="row">
-                                    <div className="card col-4">
+                                <div className="row" style={{padding: "10px"}}>
+                                    <div className="card col-4" style={{paddingTop: "10px"}}>
                                         <div className="card bg-secondary" style={{margin: "0.25rem"}}>
                                             <Mutation mutation={DELETE_LOGO} key={data.logo._id} onCompleted={() => this.props.history.push('/')}>
                                                 {(removeLogo, { loading, error }) => (
@@ -74,8 +74,6 @@ class ViewLogoScreen extends Component {
                                         <dl className="card text-white bg-secondary mb-3" style={{margin: "0.25rem", padding: "1rem"}}>
                                             <dt>Text:</dt>
                                             <dd>{data.logo.text}</dd>
-                                            <dt>Last Updated:</dt>
-                                            <dd>{data.logo.lastUpdate}</dd>
                                             <dt>Color:</dt>
                                             <dd>{data.logo.color}</dd>
                                             <dt>Font Size:</dt>
