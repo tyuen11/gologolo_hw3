@@ -23,11 +23,23 @@ class HomeScreen extends Component {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
 
+                    let logos = JSON.parse(JSON.stringify(data.logos));
+                    logos.sort(function(a,b){
+                        console.log(a.lastUpdate, b);
+                        
+                        if (a.lastUpdate > b.lastUpdate)
+                            return 0
+                        else    
+                            return 1
+                    })
+
+                    console.log(logos);
+                    
                     return (
                         <div className="container row">
                             <div className="col s4">
                                 <h3>Recent Work</h3>
-                                {data.logos.map((logo, index) => (
+                                {logos.map((logo, index) => (
                                     <div key={index} className='home_logo_link'
                                         style={{ cursor: "pointer" }}>
                                         <Link to={`/view/${logo._id}`}>{logo.text}</Link>
