@@ -75,13 +75,19 @@ class ViewLogoScreen extends Component {
                                             <dt>Text:</dt>
                                             <dd>{data.logo.text}</dd>
                                             <dt>Color:</dt>
-                                            <dd>{data.logo.color}</dd>
+                                            <input type="color"
+                                                value={data.logo.color}
+                                            />
                                             <dt>Font Size:</dt>
                                             <dd>{data.logo.fontSize}</dd>
                                             <dt>Background Color:</dt>
-                                            <dd>{data.logo.backgroundColor}</dd>
+                                            <input type="color"
+                                                value={data.logo.backgroundColor}
+                                            />
                                             <dt>Border Color:</dt>
-                                            <dd>{data.logo.borderColor}</dd>
+                                            <input type="color"
+                                                value={data.logo.borderColor}
+                                            />
                                             <dt>Border Radius:</dt>
                                             <dd>{data.logo.borderRadius}</dd>
                                             <dt>Border Width:</dt>
