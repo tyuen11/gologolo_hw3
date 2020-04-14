@@ -135,7 +135,8 @@ class EditLogoScreen extends Component {
                                                 fontSize.value = "";
                                             
                                             }}
-                                            className="col-4 card bg-secondary">
+                                            className="col-4 card bg-secondary"
+                                            style={{paddingBottom: "10px"}}>
                                                 <h3 className="panel-title">
                                                 Edit Logo
                                                 </h3>
