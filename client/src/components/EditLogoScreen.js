@@ -70,11 +70,39 @@ class EditLogoScreen extends Component {
         console.log(this.state);
         
         this.syncLogoState(logo);
+        
   
+    }
+
+    canSubmit = () => {
+       let logo = JSON.parse(JSON.stringify(this.state.logo));
+       delete logo.text;
+       console.log(logo);
+       
+       let allNumbers = (Object.values(logo)).filter(val => isNaN(val) == false);
+        if ( this.state.logo.text !== "") {
+            for (let index in allNumbers){
+                if (parseInt(allNumbers[index]) > 144 || parseInt(allNumbers[index]) < 4)
+                    return false;
+            }
+            return true;
+        } 
+        return false;
+
     }
 
     render() {
         let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
+        let canSubmitButton = "btn btn-success";
+        let submitB = document.getElementById("submitB");
+        if (this.state.logo !== null){
+           if (this.canSubmit()){
+                submitB.removeAttribute("disabled");
+           }else{  
+                submitB.setAttribute("disabled", true);
+           }
+        }
+        
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -166,7 +194,7 @@ class EditLogoScreen extends Component {
                                                     }} placeholder="Margin" defaultValue={data.logo.margin} onChange={this.handleAttributeChange.bind(this, logo)} />
                                                 </div>
 
-                                                <button type="submit" className="btn btn-success">Submit</button>&nbsp;
+                                                <button type="submit" id="submitB" className={canSubmitButton} >Submit</button>&nbsp;
                                                 <Link to={`/view/${data.logo._id}`} className="btn btn-danger">Cancel</Link>
                                             </form>
                                             {loading && <p>Loading...</p>}

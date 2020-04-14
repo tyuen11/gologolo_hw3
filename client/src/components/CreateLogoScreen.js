@@ -60,12 +60,38 @@ class CreateLogoScreen extends Component {
   
     }
 
+    canSubmit = () => {
+        let logo = JSON.parse(JSON.stringify(this.state.logo));
+        delete logo.text;
+        console.log(logo);
+        
+        let allNumbers = (Object.values(logo)).filter(val => isNaN(val) == false);
+        if ( this.state.logo.text !== "") {
+            for (let index in allNumbers){
+                if (parseInt(allNumbers[index]) > 144 || parseInt(allNumbers[index]) < 4)
+                    return false;
+            }
+            return true;
+        } 
+        return false;
+     }
+
     render() {
         let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
         let logo = this.state.logo;
         console.log(logo);
-        
 
+        let submitBC = document.getElementById("submitBC");
+        console.log(submitBC);
+        
+        if (submitBC !== null){
+            if (this.canSubmit()){
+                submitBC.removeAttribute("disabled");
+            }else{  
+                submitBC.setAttribute("disabled", true);
+            }
+        }
+        
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={(data) =>this.props.history.push(`/view/${data.addLogo._id}`)}>
                 {(addLogo, { loading, error }) => (
@@ -86,7 +112,8 @@ class CreateLogoScreen extends Component {
                                     color.value = "";
                                     fontSize.value = "";
                                 }}
-                                className="col-4 card bg-secondary">
+                                className="col-4 card bg-secondary"
+                                style={{paddingBottom: "10px"}}>
                                      <h3 className="panel-title">
                                         Create Logo
                                     </h3>
@@ -145,7 +172,7 @@ class CreateLogoScreen extends Component {
                                         }} placeholder="Margin" defaultValue={logo.margin} onChange={this.handleAttributeChange.bind(this, logo)} />
                                     </div>
 
-                                    <button type="submit" className="btn btn-success">Submit</button>
+                                    <button type="submit" id="submitBC" className="btn btn-success">Submit</button>
                                 </form>
                                 {loading && <p>Loading...</p>}
                                 {error && <p>Error :( Please try again</p>}
