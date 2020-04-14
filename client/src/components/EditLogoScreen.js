@@ -81,10 +81,10 @@ class EditLogoScreen extends Component {
        
        let allNumbers = (Object.values(logo)).filter(val => isNaN(val) == false);
         if ( this.state.logo.text !== "") {
-            for (let index in allNumbers){
-                if (parseInt(allNumbers[index]) > 144 || parseInt(allNumbers[index]) < 4)
-                    return false;
-            }
+            // for (let index in allNumbers){
+            //     if (parseInt(allNumbers[index]) > 144 || parseInt(allNumbers[index]) < 4)
+            //         return false;
+            // }
             return true;
         } 
         return false;
